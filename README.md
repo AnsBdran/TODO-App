@@ -1,19 +1,7 @@
-# todo-mdn
+# TODO App
 
-## Project setup
-```
-npm install
-```
+## If you are interested, you can see the [Live version](https://ansbdran-todo.netlify.app/) from here.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+---
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### I build this app using `VueJs` framework
