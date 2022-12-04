@@ -32,7 +32,7 @@ export default {
 form {
   /* width: max-content; */
   width: 80%;
-  margin: 5rem auto;
+  margin: 0 auto;
   /* border: 2px solid gray; */
 }
 input {

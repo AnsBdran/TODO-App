@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="submitEdits">
-    <label for="edit-todo">edit {{label}}</label>
+    <label for="edit-todo"><span class="edit">Edit: </span> {{label}}</label>
     <input type="text" id="edit-todo" v-model.trim="newLabel" ref="labelInput">
     <div class="todo-btns">
 
@@ -22,13 +22,17 @@ export default {
       type: String,
       required: true,
     },
+    id: {
+      type: Boolean,
+      required: true,
+    },
   },
   methods: {
     onCancel() {
       this.$emit("edit-cancled");
     },
     onSubmit() {
-      this.$emit("todo-submitted", this.newLabel);
+      this.$emit("todo-submitted", this.newLabel, this.id);
       this.newLabel = "";
     },
   },
@@ -40,10 +44,8 @@ export default {
 </script>
 
 <style >
-* {
-  /* border: 2px solid red; */
-}
-
-form {
+.edit {
+  color: crimson;
+  font-weight: bolder;
 }
 </style>

@@ -5,14 +5,14 @@
         <!-- <input type="checkbox" :id="id" :checked="isDone"> -->
         <img src="../../assets/imgs/check.svg" alt="ckeck mark" class="check-mark" v-if="isDone">
       </div>
-      <label @click="changedCheckbox">{{label}}</label>
+      <label @click="changedCheckbox" class="highlight">{{label}}</label>
     </div>
     <div class="todo-btns">
       <button @click="editTodo" ref="editbutton">Edit</button>
-      <button @click="(this.$emit('delete-todo'))">Delete</button>
+      <button @click="(this.$emit('delete-todo', id ))">Delete</button>
     </div>
   </div>
-  <EditTodo v-else :label="label" @edit-cancled="(this.isEditing = false)" @todo-submitted="confirmEdit" />
+  <EditTodo v-else :label="label" :id="id" @edit-cancled="(this.isEditing = false)" @todo-submitted="confirmEdit" />
 </template>
 
 
@@ -48,9 +48,9 @@ export default {
       console.log(this.$refs.editbutton);
       this.isEditing = true;
     },
-    confirmEdit(newLabel) {
+    confirmEdit(label, id) {
       this.isEditing = false;
-      this.$emit("edit-label", newLabel, this.id);
+      this.$emit("edit-label", label, id);
     },
   },
   components: {
@@ -92,12 +92,16 @@ button {
   background-color: #051537;
   color: #eee;
   cursor: pointer;
-  transition: 0.4s;
+  transition: background-color 0.4s;
   font-weight: 600;
 }
 button:hover {
   background-color: #7082a7;
   /* border: 5px solid #051537; */
+}
+button:active {
+  box-shadow: inset 2px 2px 5px #051537, inset -0.2px -0.2px 5px #051537;
+  transition: 0;
 }
 
 .checkbox {
@@ -116,22 +120,33 @@ button:hover {
 }
 .checkbox:hover {
   background-color: #0b1938;
-  border: none;
+  border-color: #0b1938;
 }
 
 input {
-  background-color: #7082a7;
+  /* background-color: #7082a7; */
+  background-color: #4464a833;
   border: none;
+  box-shadow: inset 2px 5px 12px #0b1938;
+}
+
+input:focus {
+  border: 2px solid #0b1938;
+  background-color: #586fa2;
+  box-shadow: none;
 }
 
 label {
   /* width: 100%; */
-  padding: 0.4em;
+  /* padding: 0.4em; */
   text-align: left;
   cursor: pointer;
   /* border: 2px dashed #7082a7; */
 }
-
+label.highlight::before {
+  top: 2.4rem;
+  /* border: 2px solid gray; */
+}
 /* End of my Styles */
 /* ============================================= */
 
