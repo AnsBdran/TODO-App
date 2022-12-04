@@ -1,17 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ToDo />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ToDo from "./components/ToDo-MDN/TodoApp.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ToDo,
+  },
+};
 </script>
 
 <style>
@@ -20,7 +19,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /* color: #2c3e50; */
+  /* margin-top: 60px; */
 }
+
+/* *:active {
+  filter: drop-shadow(2px 2px 10px rgba(51, 51, 51, 0.048));
+} */
 </style>
