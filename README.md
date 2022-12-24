@@ -1,6 +1,6 @@
 # TODO App
 
-## If you are interested, you can see the [Live version](https://ansbdran-todo.netlify.app/) from here.
+## If you are interested, you can see the Live version [from here](https://ansbdran-todo.netlify.app/).
 
 ---
 
